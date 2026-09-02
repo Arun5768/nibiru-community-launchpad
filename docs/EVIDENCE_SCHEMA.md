@@ -1,30 +1,28 @@
-# Builder-proof receipt
+# Support-report evidence model
 
-The launchpad can export a JSON receipt after a user inspects a public Testnet 2 address or verifies a transaction.
+Debug Desk produces a human-readable Markdown report for a maintainer, issue tracker, or community support channel.
 
-## What the receipt contains
+## Included when available
 
-- Generation time and schema version.
-- Nibiru Testnet 2 chain ID and RPC endpoint.
-- The live network snapshot shown at generation time.
-- Public address inspection results, when supplied.
-- Public transaction details, when supplied.
-- Whether the inspected address appears as the transaction sender or recipient.
-- Locally completed workshop steps.
+- Network check timestamp, RPC reachability, chain ID, latest block, block age, latency, and client.
+- Public address, account type, Testnet 2 balance, and nonce.
+- Public transaction hash, state, diagnosis, block, and confirmation count.
+- The selected symptom, observed behavior, and user-written reproduction steps.
+- An explicit reminder that no private credential should be included.
 
-## What it does not prove
+## Not collected
 
-- The identity of the person who controls an address.
-- Ownership of a private key.
-- Completion of an official Nibiru course.
-- Endorsement, certification, or affiliation with Nibiru.
+- Seed phrases, private keys, passwords, access tokens, or signatures.
+- Wallet connection data or proof of address ownership.
+- Browser identity, analytics, or a server-side copy of the report.
 
-## Privacy model
+## What the report proves
 
-The receipt is assembled and downloaded in the browser. The project has no database and does not retain wallet addresses, transaction hashes, or checklist progress. Checklist state stays in local browser storage.
+It records public chain observations and user-supplied reproduction context. It does not prove identity, ownership, an exact smart-contract revert reason, or any endorsement by Nibiru.
 
-## Schema identifier
+## Recommended support use
 
-`nibiru-community-launchpad/builder-proof@1`
-
-The receipt is deliberately human-readable so mentors and participants can inspect it without special software.
+1. Remove anything sensitive from the free-text fields.
+2. Re-run the network and public-data checks immediately before export.
+3. Paste the Markdown into the relevant support channel or issue.
+4. Add source code, ABI, or trace details only when the maintainer requests them and they are safe to share.

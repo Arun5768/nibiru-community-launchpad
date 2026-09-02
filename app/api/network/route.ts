@@ -50,6 +50,8 @@ export async function GET() {
 
     return Response.json({
       online: true,
+      rpcUrl: RPC_URL,
+      chainName: 'nibiru-testnet-2',
       chainId: chainIdHex ? Number.parseInt(chainIdHex, 16) : null,
       expectedChainId: 6911,
       networkVerified: chainIdHex
@@ -92,26 +94,118 @@ export async function POST(request: Request) {
       );
     }
 
-    const transaction = await rpc<Record<string, string> | null>(
-      'eth_getTransactionByHash',
-      [transactionHash],
-    );
+    const [transaction, receipt, latestBlockHex] = await Promise.all([
+      rpc<Record<string, string> | null>('eth_getTransactionByHash', [
+        transactionHash,
+      ]),
+      rpc<Record<string, unknown> | null>('eth_getTransactionReceipt', [
+        transactionHash,
+      ]),
+      rpc<string>('eth_blockNumber'),
+    ]);
     if (!transaction) {
       return Response.json({
         found: false,
-        message: 'No transaction was found on Nibiru Testnet 2.',
+        state: 'not_found',
+        diagnosis: 'This hash is not currently visible on Nibiru Testnet 2.',
+        nextSteps: [
+          'Confirm the wallet was connected to chain ID 6911.',
+          'Check that the transaction was broadcast and copy the hash again.',
+          'If it was just sent, wait briefly and retry.',
+        ],
+        explorerUrl: `https://testnet.nibiscan.io/tx/${transactionHash}`,
       });
     }
 
+    const blockNumber = transaction.blockNumber
+      ? Number.parseInt(transaction.blockNumber, 16)
+      : null;
+    const latestBlock = latestBlockHex
+      ? Number.parseInt(latestBlockHex, 16)
+      : (blockNumber ?? 0);
+    const rawReceiptStatus = receipt?.status;
+    const receiptStatus =
+      typeof rawReceiptStatus === 'string'
+        ? Number.parseInt(rawReceiptStatus, 16)
+        : null;
+    const state =
+      !receipt || blockNumber === null
+        ? 'pending'
+        : receiptStatus === 1
+          ? 'success'
+          : 'reverted';
+    const gasUsed =
+      typeof receipt?.gasUsed === 'string' ? BigInt(receipt.gasUsed) : null;
+    const effectiveGasPrice =
+      typeof receipt?.effectiveGasPrice === 'string'
+        ? BigInt(receipt.effectiveGasPrice)
+        : transaction.gasPrice
+          ? BigInt(transaction.gasPrice)
+          : null;
+    const formatUnit = (value: bigint, decimals = 18, precision = 8) => {
+      const base = BigInt(10) ** BigInt(decimals);
+      const whole = value / base;
+      const fraction = (value % base)
+        .toString()
+        .padStart(decimals, '0')
+        .slice(0, precision)
+        .replace(/0+$/, '');
+      return fraction ? `${whole}.${fraction}` : whole.toString();
+    };
+    const diagnosis =
+      state === 'success'
+        ? 'The transaction completed successfully on Nibiru Testnet 2.'
+        : state === 'pending'
+          ? 'The transaction is visible but has not been included in a block yet.'
+          : 'The transaction was included, but contract execution reverted.';
+    const nextSteps =
+      state === 'success'
+        ? [
+            'Confirm the resulting state in the explorer or your application.',
+            'Keep the hash as reproducible evidence.',
+          ]
+        : state === 'pending'
+          ? [
+              'Check for an earlier pending nonce from the same wallet.',
+              'Wait for inclusion before attempting the same action again.',
+            ]
+          : [
+              'Confirm the contract address, function, and public inputs.',
+              'Capture the exact UI or RPC error and reproduce on Testnet 2.',
+              'Use a trace-capable tool or contract tests for the exact revert cause.',
+            ];
+
     return Response.json({
       found: true,
+      state,
+      diagnosis,
+      nextSteps,
+      explorerUrl: `https://testnet.nibiscan.io/tx/${transactionHash}`,
       transaction: {
         hash: transaction.hash,
         from: transaction.from,
-        to: transaction.to,
-        blockNumber: transaction.blockNumber
-          ? Number.parseInt(transaction.blockNumber, 16)
-          : null,
+        to: transaction.to || null,
+        blockNumber,
+        confirmations:
+          blockNumber === null ? 0 : Math.max(0, latestBlock - blockNumber + 1),
+        valueNibi: transaction.value
+          ? formatUnit(BigInt(transaction.value))
+          : '0',
+        gasLimit: transaction.gas ? Number.parseInt(transaction.gas, 16) : null,
+        gasUsed: gasUsed === null ? null : Number(gasUsed),
+        effectiveGasPriceGwei:
+          effectiveGasPrice === null
+            ? null
+            : formatUnit(effectiveGasPrice, 9, 6),
+        transactionCostNibi:
+          gasUsed !== null && effectiveGasPrice !== null
+            ? formatUnit(gasUsed * effectiveGasPrice)
+            : null,
+        logsCount: Array.isArray(receipt?.logs) ? receipt.logs.length : 0,
+        contractAddress:
+          typeof receipt?.contractAddress === 'string'
+            ? receipt.contractAddress
+            : null,
       },
     });
   } catch (error) {

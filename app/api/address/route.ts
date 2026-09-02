@@ -54,6 +54,8 @@ export async function POST(request: Request) {
       balanceNibi: balanceHex ? formatNibi(balanceHex) : '0',
       nonce: nonceHex ? Number.parseInt(nonceHex, 16) : 0,
       accountType: code && code !== '0x' ? 'Smart contract' : 'Wallet',
+      bytecodeBytes:
+        code && code !== '0x' ? Math.max(0, (code.length - 2) / 2) : 0,
       explorerUrl: `https://testnet.nibiscan.io/address/${address}`,
       checkedAt: new Date().toISOString(),
     });

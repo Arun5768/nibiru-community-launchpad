@@ -1,27 +1,28 @@
-# Nibiru Community Launchpad
+# Nibiru Debug Desk
 
 [![Live on Cloudflare](https://img.shields.io/badge/live-Cloudflare-F38020?logo=cloudflare&logoColor=white)](https://nibiru-community-launchpad.arunchandel1780.workers.dev/)
 [![Nibiru Testnet 2](https://img.shields.io/badge/Nibiru-Testnet%202-74E6ED)](https://testnet.nibiscan.io/)
-[![Independent proof of work](https://img.shields.io/badge/status-independent%20proof%20of%20work-BEF264)](#safety-and-attribution)
+[![Independent proof of work](https://img.shields.io/badge/status-independent%20proof%20of%20work-6E47D8)](#safety-and-attribution)
 
-An independent, testnet-first product that helps a new builder move from curiosity to public, verifiable evidence on Nibiru.
+An independent, read-only troubleshooting utility for Nibiru EVM Testnet 2. It helps a builder identify common network, address, and transaction problems before asking a maintainer or community member for help.
 
-**[Open the live launchpad](https://nibiru-community-launchpad.arunchandel1780.workers.dev/)** · **[Read the technical case study](docs/TECHNICAL_CASE_STUDY.md)** · **[Use the facilitator playbook](docs/FACILITATOR_PLAYBOOK.md)**
+**[Open the live Debug Desk](https://nibiru-community-launchpad.arunchandel1780.workers.dev/)** · **[Official Nibiru network docs](https://nibiru.fi/docs/dev/networks)** · **[Technical case study](docs/TECHNICAL_CASE_STUDY.md)**
 
-![Nibiru Community Launchpad live interface](docs/assets/launchpad-live.png)
+![Nibiru Debug Desk live interface](docs/assets/launchpad-live.png)
 
 ## Why this exists
 
-Many onboarding events measure registrations and impressions. This project measures completed wallet setup, public transactions, build artifacts, and follow-up. It is both a working developer tool and a reusable community operating kit.
+Support conversations often begin without the evidence needed to diagnose a problem: the wrong chain, a stale RPC, a public address that is not a contract, or a transaction hash with no receipt. Debug Desk turns those scattered checks into one simple flow and exports a sanitized Markdown report.
 
 ## Proof package
 
 | Artifact                 | What can be verified                                                                    |
 | ------------------------ | --------------------------------------------------------------------------------------- |
 | Live network diagnostics | Testnet 2 chain ID, latest block, block age, gas price, client, sync state, and latency |
-| Public address inspector | Balance, nonce, wallet/contract classification, and explorer link                       |
-| Transaction verifier     | Transaction existence and block number using the official JSON-RPC endpoint             |
-| Builder-proof receipt    | Human-readable JSON connecting public evidence with locally completed tasks             |
+| Public address inspector | Balance, nonce, wallet/contract classification, bytecode size, and explorer link        |
+| Transaction debugger     | Pending/success/reverted state, confirmations, gas used, cost, and useful next checks   |
+| Issue guide              | Clear checks for wrong-network, pending, reverted, missing-contract, and RPC problems   |
+| Support report builder   | A sanitized Markdown report combining evidence, observations, and reproduction steps    |
 | Verification script      | Repeatable command-line assertions against the live network                             |
 | Facilitator playbook     | A 90-minute lab, safety script, metrics, and 30-day follow-up loop                      |
 
@@ -32,7 +33,8 @@ Many onboarding events measure registrations and impressions. This project measu
 - [`scripts/verify-network.mjs`](scripts/verify-network.mjs) — independent network verification.
 - [`docs/TECHNICAL_CASE_STUDY.md`](docs/TECHNICAL_CASE_STUDY.md) — architecture and decisions.
 - [`docs/FACILITATOR_PLAYBOOK.md`](docs/FACILITATOR_PLAYBOOK.md) — event operating system.
-- [`docs/EVIDENCE_SCHEMA.md`](docs/EVIDENCE_SCHEMA.md) — receipt data and limitations.
+- [`components/debug-desk.tsx`](components/debug-desk.tsx) — browser-based diagnostic and report workflow.
+- [`docs/EVIDENCE_SCHEMA.md`](docs/EVIDENCE_SCHEMA.md) — evidence data and limitations.
 - [`docs/CONTRIBUTION_MAP.md`](docs/CONTRIBUTION_MAP.md) — responsible upstream-feedback path.
 - [`evidence/network-check.latest.json`](evidence/network-check.latest.json) — dated machine-readable verification output.
 
@@ -45,9 +47,9 @@ pnpm lint
 pnpm build
 ```
 
-## Community rollout
+## What it does not do
 
-The first pilot is designed for 25–40 selected builders in Indore. The improved curriculum then runs in Bhopal before becoming a lightweight city playbook for trusted organizers. Success is defined by verified outputs and 30-day contributor retention—not attendance alone.
+It does not connect a wallet, sign transactions, simulate contract execution, or claim to identify every revert reason. It narrows common failure classes and prepares evidence for the next human in the support chain.
 
 ## Safety and attribution
 

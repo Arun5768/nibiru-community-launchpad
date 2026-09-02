@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Nibiru Community Launchpad | Indore',
+  title: 'Nibiru Debug Desk',
   description:
-    'An independent, practical onboarding path for new Nibiru builders in India.',
+    'A read-only Nibiru EVM troubleshooting utility for network, address, and transaction diagnostics.',
 };
 
 export default function RootLayout({
@@ -24,8 +24,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+    <html lang="en">
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
         {children}
       </body>
     </html>
