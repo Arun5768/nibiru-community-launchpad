@@ -1,9 +1,12 @@
 import {
   ArrowUpRight,
   BookOpen,
+  CalendarDays,
   Code2,
+  Languages,
   LifeBuoy,
   LockKeyhole,
+  UsersRound,
 } from 'lucide-react';
 import { DebugDesk } from '@/components/debug-desk';
 
@@ -35,6 +38,9 @@ export default function Home() {
               rel="noreferrer"
             >
               Explorer <ArrowUpRight />
+            </a>
+            <a href="#field-kit">
+              <UsersRound /> Field kit
             </a>
             <a
               href="https://github.com/Arun5768/nibiru-community-launchpad"
@@ -69,6 +75,61 @@ export default function Home() {
         </section>
 
         <DebugDesk />
+
+        <section
+          className="field-kit"
+          id="field-kit"
+          aria-labelledby="field-kit-title"
+        >
+          <div className="field-kit-heading">
+            <div>
+              <p className="kicker">
+                <UsersRound /> Community field kit
+              </p>
+              <h2 id="field-kit-title">Designed to work beyond the demo.</h2>
+            </div>
+            <p>
+              A public, reviewable pilot for helping an India-based cohort
+              complete a first Testnet 2 action. The materials are ready;
+              results will be added only after a real session.
+            </p>
+          </div>
+          <div className="field-kit-grid">
+            <a
+              href="https://github.com/Arun5768/nibiru-community-launchpad/blob/main/community-pilot/FIRST_SESSION.md"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <CalendarDays />
+              <span>Run the session</span>
+              <strong>60-minute first-build workshop</strong>
+              <small>Roles, timing, challenge cards, and follow-up</small>
+              <ArrowUpRight />
+            </a>
+            <a
+              href="https://github.com/Arun5768/nibiru-community-launchpad/blob/main/community-pilot/HINDI_QUICKSTART.md"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <Languages />
+              <span>Make onboarding clearer</span>
+              <strong>English + Hindi quick start</strong>
+              <small>Safety, network checks, and support vocabulary</small>
+              <ArrowUpRight />
+            </a>
+            <a
+              href="https://github.com/Arun5768/nibiru-community-launchpad/tree/main/community-pilot"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <BookOpen />
+              <span>Review the complete kit</span>
+              <strong>Content, care, and measurement</strong>
+              <small>Transparent templates with no invented outcomes</small>
+              <ArrowUpRight />
+            </a>
+          </div>
+        </section>
 
         <footer className="footer">
           <p>

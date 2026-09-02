@@ -25,6 +25,7 @@ Support conversations often begin without the evidence needed to diagnose a prob
 | Support report builder   | A sanitized Markdown report combining evidence, observations, and reproduction steps    |
 | Verification script      | Repeatable command-line assertions against the live network                             |
 | Facilitator playbook     | A 90-minute lab, safety script, metrics, and 30-day follow-up loop                      |
+| India community pilot    | Bilingual onboarding, a 60-minute session, content plan, moderation, and honest metrics |
 
 ## Repository map
 
@@ -36,6 +37,7 @@ Support conversations often begin without the evidence needed to diagnose a prob
 - [`components/debug-desk.tsx`](components/debug-desk.tsx) — browser-based diagnostic and report workflow.
 - [`docs/EVIDENCE_SCHEMA.md`](docs/EVIDENCE_SCHEMA.md) — evidence data and limitations.
 - [`docs/CONTRIBUTION_MAP.md`](docs/CONTRIBUTION_MAP.md) — responsible upstream-feedback path.
+- [`community-pilot/README.md`](community-pilot/README.md) — India first-build pilot and reusable field materials.
 - [`evidence/network-check.latest.json`](evidence/network-check.latest.json) — dated machine-readable verification output.
 
 ## Verify it yourself

@@ -824,6 +824,92 @@ textarea {
   white-space: pre-wrap;
 }
 
+.field-kit {
+  margin-top: 24px;
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--paper);
+  box-shadow: 0 18px 48px rgba(38, 29, 54, 0.04);
+}
+.field-kit-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(320px, 1.1fr);
+  align-items: end;
+  gap: 36px;
+}
+.field-kit-heading .kicker {
+  margin-bottom: 9px;
+}
+.field-kit-heading h2 {
+  margin: 0;
+  font-size: clamp(24px, 3vw, 36px);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+.field-kit-heading > p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.65;
+}
+.field-kit-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 22px;
+}
+.field-kit-grid > a {
+  position: relative;
+  display: flex;
+  min-height: 168px;
+  padding: 18px;
+  flex-direction: column;
+  align-items: flex-start;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fcfbfd;
+  transition:
+    border-color 160ms ease,
+    transform 160ms ease;
+}
+.field-kit-grid > a:hover {
+  transform: translateY(-2px);
+  border-color: #cfc6e8;
+}
+.field-kit-grid > a > svg:first-child {
+  width: 18px;
+  height: 18px;
+  margin-bottom: 22px;
+  color: var(--violet);
+}
+.field-kit-grid > a > svg:last-child {
+  position: absolute;
+  top: 17px;
+  right: 17px;
+  width: 14px;
+  height: 14px;
+  color: #8b8695;
+}
+.field-kit-grid span {
+  margin-bottom: 6px;
+  color: var(--violet);
+  font-size: 9px;
+  font-weight: 780;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.field-kit-grid strong {
+  font-size: 13px;
+  letter-spacing: -0.01em;
+}
+.field-kit-grid small {
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.45;
+}
+
 .footer {
   display: flex;
   padding: 22px 2px 0;
@@ -857,6 +943,13 @@ textarea {
   .intro-panel {
     grid-template-columns: 1fr;
     align-items: start;
+  }
+  .field-kit-heading {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .field-kit-grid {
+    grid-template-columns: 1fr 1fr;
   }
   .safety-note {
     max-width: 360px;
@@ -946,6 +1039,12 @@ textarea {
   .footer {
     align-items: flex-start;
     flex-direction: column;
+  }
+  .field-kit {
+    padding: 22px 16px;
+  }
+  .field-kit-grid {
+    grid-template-columns: 1fr;
   }
 }
 
