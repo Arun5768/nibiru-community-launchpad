@@ -2,7 +2,7 @@
 
 [![Live on Cloudflare](https://img.shields.io/badge/live-Cloudflare-F38020?logo=cloudflare&logoColor=white)](https://nibiru-community-launchpad.arunchandel1780.workers.dev/)
 [![Nibiru Testnet 2](https://img.shields.io/badge/Nibiru-Testnet%202-74E6ED)](https://testnet.nibiscan.io/)
-[![Independent proof of work](https://img.shields.io/badge/status-independent%20proof%20of%20work-6E47D8)](#safety-and-attribution)
+[![Community maintained](https://img.shields.io/badge/status-community%20maintained-6E47D8)](#safety-and-attribution)
 
 An independent, read-only troubleshooting utility for Nibiru EVM Testnet 2. It helps a builder identify common network, address, and transaction problems before asking a maintainer or community member for help.
 
@@ -14,7 +14,7 @@ An independent, read-only troubleshooting utility for Nibiru EVM Testnet 2. It h
 
 Support conversations often begin without the evidence needed to diagnose a problem: the wrong chain, a stale RPC, a public address that is not a contract, or a transaction hash with no receipt. Debug Desk turns those scattered checks into one simple flow and exports a sanitized Markdown report.
 
-## Proof package
+## What is included
 
 | Artifact                 | What can be verified                                                                    |
 | ------------------------ | --------------------------------------------------------------------------------------- |
@@ -53,7 +53,7 @@ It does not connect a wallet, sign transactions, simulate contract execution, or
 
 ## Safety and attribution
 
-This is independent proof of work by [Arun Chandel](https://github.com/Arun5768). It is not affiliated with or endorsed by Nibiru.
+This project is maintained independently by [Arun Chandel](https://github.com/Arun5768). It is not affiliated with or endorsed by Nibiru.
 
 - Never enter a seed phrase or private key.
 - Use testnet accounts only.
