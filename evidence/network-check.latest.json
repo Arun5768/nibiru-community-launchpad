@@ -1,0 +1,22 @@
+{
+  "schema": "nibiru-community-launchpad/network-check@1",
+  "checkedAt": "2026-09-02T12:28:24.588Z",
+  "endpoint": "https://evm-rpc.testnet-2.nibiru.fi",
+  "assertions": {
+    "endpointResponded": true,
+    "chainIdMatchesTestnet2": true,
+    "blockNumberIsPositive": true
+  },
+  "observed": {
+    "chainId": 6911,
+    "latestBlock": 9265717,
+    "clientVersion": "Nibiru dev: Compiled at Git commit  using Go go1.25.0, arch amd64, and build tags ()",
+    "gasPriceGwei": 0,
+    "latencyMs": {
+      "chainId": 3479,
+      "blockNumber": 3340,
+      "clientVersion": 3337,
+      "gasPrice": 3331
+    }
+  }
+}

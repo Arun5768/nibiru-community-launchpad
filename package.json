@@ -9,6 +9,7 @@
     "dev": "vinext dev",
     "build": "vinext build",
     "start": "wrangler dev --config dist/server/wrangler.json",
+    "verify:nibiru": "node scripts/verify-network.mjs",
     "lint": "oxlint",
     "format": "oxfmt"
   },
