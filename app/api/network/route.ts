@@ -97,10 +97,10 @@ export async function POST(request: Request) {
     const [transaction, receipt, latestBlockHex] = await Promise.all([
       rpc<Record<string, string> | null>('eth_getTransactionByHash', [
         transactionHash,
-      ]),
+      ]).catch(() => null),
       rpc<Record<string, unknown> | null>('eth_getTransactionReceipt', [
         transactionHash,
-      ]),
+      ]).catch(() => null),
       rpc<string>('eth_blockNumber'),
     ]);
     if (!transaction) {
