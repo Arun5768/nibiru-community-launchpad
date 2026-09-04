@@ -9,6 +9,7 @@ import {
   UsersRound,
 } from 'lucide-react';
 import { DebugDesk } from '@/components/debug-desk';
+import { PilotEvidence } from '@/components/pilot-evidence';
 
 export default function Home() {
   return (
@@ -41,6 +42,9 @@ export default function Home() {
             </a>
             <a href="#field-kit">
               <UsersRound /> Field kit
+            </a>
+            <a href="#pilot-evidence">
+              <CalendarDays /> Pilot proof
             </a>
             <a
               href="https://github.com/Arun5768/nibiru-community-launchpad"
@@ -75,6 +79,8 @@ export default function Home() {
         </section>
 
         <DebugDesk />
+
+        <PilotEvidence />
 
         <section
           className="field-kit"

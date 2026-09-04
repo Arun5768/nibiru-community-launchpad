@@ -33,6 +33,11 @@ ready to help the next participant.
 - [`templates/session_metrics.csv`](templates/session_metrics.csv) — empty outcome tracker.
 - [`templates/participant_followup.md`](templates/participant_followup.md) — 48-hour follow-up message.
 - [`templates/retrospective.md`](templates/retrospective.md) — transparent post-session report.
+- [`PUBLIC_BETA_CHECKLIST.md`](PUBLIC_BETA_CHECKLIST.md) — safe execution path from rehearsal to a public case study.
+
+The live Debug Desk also includes a browser-only Pilot Evidence tracker. It
+validates aggregate counts and exports the same results as Markdown or CSV
+without submitting participant information to a server.
 
 ## Operating principle
 

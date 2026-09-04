@@ -16,16 +16,17 @@ Support conversations often begin without the evidence needed to diagnose a prob
 
 ## What is included
 
-| Artifact                 | What can be verified                                                                    |
-| ------------------------ | --------------------------------------------------------------------------------------- |
-| Live network diagnostics | Testnet 2 chain ID, latest block, block age, gas price, client, sync state, and latency |
-| Public address inspector | Balance, nonce, wallet/contract classification, bytecode size, and explorer link        |
-| Transaction debugger     | Pending/success/reverted state, confirmations, gas used, cost, and useful next checks   |
-| Issue guide              | Clear checks for wrong-network, pending, reverted, missing-contract, and RPC problems   |
-| Support report builder   | A sanitized Markdown report combining evidence, observations, and reproduction steps    |
-| Verification script      | Repeatable command-line assertions against the live network                             |
-| Facilitator playbook     | A 90-minute lab, safety script, metrics, and 30-day follow-up loop                      |
-| India community pilot    | Bilingual onboarding, a 60-minute session, content plan, moderation, and honest metrics |
+| Artifact                 | What can be verified                                                                      |
+| ------------------------ | ----------------------------------------------------------------------------------------- |
+| Live network diagnostics | Testnet 2 chain ID, latest block, block age, gas price, client, sync state, and latency   |
+| Public address inspector | Balance, nonce, wallet/contract classification, bytecode size, and explorer link          |
+| Transaction debugger     | Pending/success/reverted state, confirmations, gas used, cost, and useful next checks     |
+| Issue guide              | Clear checks for wrong-network, pending, reverted, missing-contract, and RPC problems     |
+| Support report builder   | A sanitized Markdown report combining evidence, observations, and reproduction steps      |
+| Pilot evidence tracker   | Browser-only aggregate metrics, consistency checks, and Markdown/CSV retrospective export |
+| Verification script      | Repeatable command-line assertions against the live network                               |
+| Facilitator playbook     | A 90-minute lab, safety script, metrics, and 30-day follow-up loop                        |
+| India community pilot    | Bilingual onboarding, a 60-minute session, content plan, moderation, and honest metrics   |
 
 ## Repository map
 
@@ -35,9 +36,11 @@ Support conversations often begin without the evidence needed to diagnose a prob
 - [`docs/TECHNICAL_CASE_STUDY.md`](docs/TECHNICAL_CASE_STUDY.md) — architecture and decisions.
 - [`docs/FACILITATOR_PLAYBOOK.md`](docs/FACILITATOR_PLAYBOOK.md) — event operating system.
 - [`components/debug-desk.tsx`](components/debug-desk.tsx) — browser-based diagnostic and report workflow.
+- [`components/pilot-evidence.tsx`](components/pilot-evidence.tsx) — private browser draft and honest aggregate outcome exports.
 - [`docs/EVIDENCE_SCHEMA.md`](docs/EVIDENCE_SCHEMA.md) — evidence data and limitations.
 - [`docs/CONTRIBUTION_MAP.md`](docs/CONTRIBUTION_MAP.md) — responsible upstream-feedback path.
 - [`community-pilot/README.md`](community-pilot/README.md) — India first-build pilot and reusable field materials.
+- [`community-pilot/PUBLIC_BETA_CHECKLIST.md`](community-pilot/PUBLIC_BETA_CHECKLIST.md) — execution path from private rehearsal to a verifiable case study.
 - [`evidence/network-check.latest.json`](evidence/network-check.latest.json) — dated machine-readable verification output.
 
 ## Verify it yourself
