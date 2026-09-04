@@ -1,0 +1,76 @@
+name: Pilot feedback
+description: Report a privacy-safe, reproducible test of Nibiru Debug Desk.
+title: "pilot: "
+labels:
+  - pilot-feedback
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for testing this independent community utility. Use public Nibiru Testnet 2 data only. Never include a seed phrase, private key, personal identifier, or mainnet funds.
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Safety confirmation
+      options:
+        - label: I used public Testnet 2 data only and removed private information.
+          required: true
+  - type: dropdown
+    id: experience
+    attributes:
+      label: Your Web3 experience
+      options:
+        - New to Web3 development
+        - Some testnet or smart-contract experience
+        - Regular Web3 developer
+        - Infrastructure, validator, or protocol developer
+    validations:
+      required: true
+  - type: checkboxes
+    id: areas
+    attributes:
+      label: What did you test?
+      options:
+        - label: Network health
+        - label: Public address inspector
+        - label: Transaction debugger
+        - label: Issue guide
+        - label: Support report export
+    validations:
+      required: true
+  - type: textarea
+    id: scenario
+    attributes:
+      label: Test scenario and result
+      description: Explain what you tried, what you expected, and what happened.
+      placeholder: I checked… I expected… The tool showed…
+    validations:
+      required: true
+  - type: textarea
+    id: friction
+    attributes:
+      label: What was unclear, incorrect, or missing?
+      description: Critical feedback and failed results are useful.
+    validations:
+      required: true
+  - type: textarea
+    id: improvement
+    attributes:
+      label: One improvement you would prioritize
+    validations:
+      required: true
+  - type: input
+    id: evidence
+    attributes:
+      label: Optional public evidence link
+      description: Public Testnet 2 explorer link, repository, or related issue. Do not paste private data.
+  - type: dropdown
+    id: quote_permission
+    attributes:
+      label: May a short excerpt be quoted in the public pilot retrospective?
+      options:
+        - No
+        - Yes, without my name
+        - Yes, with my GitHub username
+    validations:
+      required: true

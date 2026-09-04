@@ -8,6 +8,8 @@ An independent, read-only troubleshooting utility for Nibiru EVM Testnet 2. It h
 
 **[Open the live Debug Desk](https://nibiru-community-launchpad.arunchandel1780.workers.dev/)** · **[Official Nibiru network docs](https://nibiru.fi/docs/dev/networks)** · **[Technical case study](docs/TECHNICAL_CASE_STUDY.md)**
 
+**Independent pilot:** follow the [15-minute self-guided protocol](docs/SELF_GUIDED_PILOT.md), then [submit structured feedback](https://github.com/Arun5768/nibiru-community-launchpad/issues/new?template=pilot-feedback.yml). Failed or critical results are welcome; no outcome is counted without reviewable evidence.
+
 ![Nibiru Debug Desk live interface](docs/assets/launchpad-live.png)
 
 ## Why this exists
@@ -24,6 +26,7 @@ Support conversations often begin without the evidence needed to diagnose a prob
 | Issue guide              | Clear checks for wrong-network, pending, reverted, missing-contract, and RPC problems     |
 | Support report builder   | A sanitized Markdown report combining evidence, observations, and reproduction steps      |
 | Pilot evidence tracker   | Browser-only aggregate metrics, consistency checks, and Markdown/CSV retrospective export |
+| Self-guided pilot        | A timed 15-minute test, clear completion standard, consent boundary, and issue template    |
 | Verification script      | Repeatable command-line assertions against the live network                               |
 | Facilitator playbook     | A 90-minute lab, safety script, metrics, and 30-day follow-up loop                        |
 | India community pilot    | Bilingual onboarding, a 60-minute session, content plan, moderation, and honest metrics   |
@@ -38,6 +41,7 @@ Support conversations often begin without the evidence needed to diagnose a prob
 - [`components/debug-desk.tsx`](components/debug-desk.tsx) — browser-based diagnostic and report workflow.
 - [`components/pilot-evidence.tsx`](components/pilot-evidence.tsx) — private browser draft and honest aggregate outcome exports.
 - [`docs/EVIDENCE_SCHEMA.md`](docs/EVIDENCE_SCHEMA.md) — evidence data and limitations.
+- [`docs/SELF_GUIDED_PILOT.md`](docs/SELF_GUIDED_PILOT.md) — the public 15-minute test and evidence standard.
 - [`docs/CONTRIBUTION_MAP.md`](docs/CONTRIBUTION_MAP.md) — responsible upstream-feedback path.
 - [`community-pilot/README.md`](community-pilot/README.md) — India first-build pilot and reusable field materials.
 - [`community-pilot/PUBLIC_BETA_CHECKLIST.md`](community-pilot/PUBLIC_BETA_CHECKLIST.md) — execution path from private rehearsal to a verifiable case study.

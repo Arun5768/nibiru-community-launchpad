@@ -11,7 +11,7 @@
     "deploy": "wrangler deploy --config dist/server/wrangler.json --name nibiru-community-launchpad",
     "start": "wrangler dev --config dist/server/wrangler.json",
     "verify:nibiru": "node scripts/verify-network.mjs",
-    "lint": "oxlint app components/debug-desk.tsx components/pilot-evidence.tsx",
+    "lint": "oxlint app components/debug-desk.tsx components/pilot-evidence.tsx components/pilot-protocol.tsx",
     "format": "oxfmt"
   },
   "dependencies": {
